@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ram1" class="main.Ram">
+		<property name="precio" value="80.0"></property>
+		<property name="hz" value="3500.0"></property>
+		<property name="generacion" value="DDR4"></property>
+	</bean>
+	<bean id="ram2" class="main.Ram">
+		<property name="precio" value="80.0"></property>
+		<property name="hz" value="3500.0"></property>
+		<property name="generacion" value="DDR4"></property>
+	</bean>
+	<bean id="grafica1" class="main.TarjetaGrafica">
+		<property name="precio" value="500.0"></property>
+		<property name="marca" value="Nvidia"></property>
+		<property name="modelo" value="GTX 2080"></property>
+		<property name="ram">
+			<bean class="main.Ram">
+				<property name="precio" value="80.0"></property>
+				<property name="hz" value="2500.0"></property>
+				<property name="generacion" value="DDR4"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="grafica2" class="main.TarjetaGrafica">
+		<property name="precio" value="500.0"></property>
+		<property name="marca" value="Nvidia"></property>
+		<property name="modelo" value="GTX 2080"></property>
+		<property name="ram">
+			<bean class="main.Ram">
+				<property name="precio" value="80.0"></property>
+				<property name="hz" value="2500.0"></property>
+				<property name="generacion" value="DDR4"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="periferico1" class="main.Perifericos">
+		<property name="nombre" value="Raton"></property>
+		<property name="precio" value="55.0"></property>
+		<property name="marca" value="Logitech"></property>
+	</bean>
+	<bean id="periferico2" class="main.Perifericos">
+		<property name="nombre" value="Teclado"></property>
+		<property name="precio" value="100.0"></property>
+		<property name="marca" value="Razer"></property>
+	</bean>
+	<bean id="periferico3" class="main.Perifericos">
+		<property name="nombre" value="Cascos"></property>
+		<property name="precio" value="135"></property>
+		<property name="marca" value="HyperX"></property>
+	</bean>
+
+	<bean id="ordenador" class="main.Ordenador">
+		<property name="precio" value="1000.0"></property>
+		<property name="marca" value="Alienware"></property>
+		<property name="procesador">
+			<bean class="main.Procesador">
+				<property name="precio" value="250.0"></property>
+				<property name="Ghz" value="3.0"></property>
+				<property name="marca" value="Ryzen 5"></property>
+				<property name="tarjetaIntegrada">
+					<bean class="main.TarjetaGrafica">
+						<property name="precio" value="500.0"></property>
+						<property name="marca" value="Nvidia"></property>
+						<property name="modelo" value="GTX 2080"></property>
+						<property name="ram">
+							<bean class="main.Ram">
+								<property name="precio" value="80.0"></property>
+								<property name="hz" value="2500.0"></property>
+								<property name="generacion" value="DDR4"></property>
+							</bean>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="listaRam">
+			<bean id="listaRams" class="java.util.ArrayList">
+				<constructor-arg>
+					<list value-type="main.Ram">
+						<ref bean="ram1" />
+						<ref bean="ram2" />
+					</list>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="listaTarjetaGrafica">
+			<bean id="listaTarjetaGraficas" class="java.util.ArrayList">
+				<constructor-arg>
+					<list value-type="main.TarjetaGrafica">
+						<ref bean="grafica1" />
+						<ref bean="grafica2" />
+					</list>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="listaPerifericos">
+			<bean id="listaPerifericos" class="java.util.ArrayList">
+				<constructor-arg>
+					<list value-type="main.Perifericos">
+						<ref bean="periferico1" />
+						<ref bean="periferico2" />
+						<ref bean="periferico3" />
+					</list>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="placaBase">
+			<bean class="main.PlacaBase">
+				<property name="precio" value="250.0"></property>
+				<property name="marca" value="3.0"></property>
+				<property name="modelo" value="Ryzen 5"></property>
+			</bean>
+		</property>
+	</bean>
+
+
+
+
+	<bean id="heroePoder" class="entity.SuperHeroe" scope="prototype">
+		<property name="poder" value="100"></property>
+	</bean>
+</beans>
