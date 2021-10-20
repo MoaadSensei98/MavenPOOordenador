@@ -13,6 +13,7 @@
 		<property name="hz" value="3500.0"></property>
 		<property name="generacion" value="DDR4"></property>
 	</bean>
+	
 	<bean id="grafica1" class="main.TarjetaGrafica">
 		<property name="precio" value="500.0"></property>
 		<property name="marca" value="Nvidia"></property>
@@ -37,6 +38,7 @@
 			</bean>
 		</property>
 	</bean>
+	
 	<bean id="periferico1" class="main.Perifericos">
 		<property name="nombre" value="Raton"></property>
 		<property name="precio" value="55.0"></property>
@@ -117,10 +119,4 @@
 		</property>
 	</bean>
 
-
-
-
-	<bean id="heroePoder" class="entity.SuperHeroe" scope="prototype">
-		<property name="poder" value="100"></property>
-	</bean>
 </beans>
